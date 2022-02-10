@@ -157,7 +157,7 @@ void Port_Init( const Port_ConfigType* ConfigPtr )
             else 
             {
                 SET_BIT(*(volatile uint32 *)((volatile uint8 *) PortGpio_Ptr + PORT_ALT_FUNC_REG_OFFSET), Port_pins[portPinIndex].pin_num);
-                *(volatile uint32 *)((volatile uint8 *) PortGpio_Ptr + PORT_CTL_REG_OFFSET) |= (0x0000000F << Port_pins[portPinIndex].pin_num * 4);
+                *(volatile uint32 *)((volatile uint8 *) PortGpio_Ptr + PORT_CTL_REG_OFFSET) |= (Port_pins[portPinIndex].mode << Port_pins[portPinIndex].pin_num * 4);
             }
             
             /* Set the Direction of pin */
